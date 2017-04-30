@@ -1,0 +1,13 @@
+
+<http://gareus.org/oss/lv2/@LV2NAME@>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-@LV2NAME@.html> ;
+        modgui:stylesheet <modgui/stylesheet-@LV2NAME@.css> ;
+        modgui:screenshot <modgui/screenshot-@LV2NAME@.png> ;
+        modgui:thumbnail <modgui/thumbnail-@LV2NAME@.png> ;
+        modgui:javascript <modgui/script-@LV2NAME@.js> ;
+        modgui:brand "x42" ;
+        modgui:label "MIDI TimeCode" ;
+        modgui:monitoredOutputs [ lv2:symbol "tc_hour" ] , [ lv2:symbol "tc_minute" ] , [ lv2:symbol "tc_second" ]  , [ lv2:symbol "tc_frame" ] ;
+    ] .
