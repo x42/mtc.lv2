@@ -435,9 +435,11 @@ int timecode_time_increment(TimecodeTime * const t, TimecodeRate const * const r
 	if (t->minute < 60) goto done;
 	t->minute = 0;
 	t->hour++;
+#if 0 // MTC.lv2 -- ignore
 	if (t->hour < 24) goto done;
 	t->hour = 0;
 	rv=1;
+#endif
 
 done:
 	if (r->drop && (t->minute%10 != 0) && (t->second == 0) && (t->frame == 0)) {

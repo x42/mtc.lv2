@@ -458,15 +458,13 @@ run (LV2_Handle instance, uint32_t n_samples)
 
 		/* calculate position of next "0" quarter-frame */
 		if (rolling && tcdiff != 0) {
-			bool wrap_around;
 			do {
 				if (speed > 0) {
-					wrap_around = timecode_time_increment (&t, &self->framerate);
+					timecode_time_increment (&t, &self->framerate);
 				} else {
-					wrap_around = timecode_time_decrement (&t, &self->framerate);
-				}
-				if (wrap_around) {
-					assert (0); // crap.
+					if (timecode_time_decrement (&t, &self->framerate)) {
+						t.hour = t.minute = t.second = t.frame = 0;
+					}
 				}
 			} while (self->mtc_tc != 0x20 && (t.frame % 2) == 1);
 
@@ -483,7 +481,7 @@ run (LV2_Handle instance, uint32_t n_samples)
 		memcpy (&self->cur_tc, &t, sizeof(TimecodeTime));
 	}
 
-	const int distance = (int) rintf (speed * (float)n_samples);
+	const int distance = (int) floor (speed * (float)n_samples);
 	int64_t sample_at_cycle_end;
 	if (-distance >= sample_at_cycle_start) {
 		sample_at_cycle_end = 0;
@@ -501,6 +499,7 @@ run (LV2_Handle instance, uint32_t n_samples)
 		int qf = self->next_qf_to_send;
 		double next_qf_tme = self->next_qf_tme;
 
+		// §6.3.1.4 - float to integer discards fractional part (rounds towards zero)
 		while (
 				(speed > 0 && next_qf_tme >= sample_at_cycle_start && next_qf_tme < sample_at_cycle_end)
 				||
