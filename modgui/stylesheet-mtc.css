@@ -107,7 +107,7 @@
     margin: 0 14px;
 }
 
-.x42-mtc{{{cns}}} .mod-control-group .mod-fps-knob {
+.x42-mtc{{{cns}}} .mod-control-group .mod-sync-knob {
     overflow:hidden;
     position:relative;
     display:inline-block;
@@ -115,8 +115,8 @@
     margin: 0 14px;
 }
 
-.x42-mtc{{{cns}}} .mod-control-group .mod-fps-knob > span.mod-knob-title-on,
-.x42-mtc{{{cns}}} .mod-control-group .mod-fps-knob > span.mod-knob-title-off
+.x42-mtc{{{cns}}} .mod-control-group .mod-sync-knob > span.mod-knob-title-on,
+.x42-mtc{{{cns}}} .mod-control-group .mod-sync-knob > span.mod-knob-title-off
 {
     display:block;
     font-size:11px;
@@ -132,12 +132,12 @@
     text-transform:uppercase;
 }
 
-.x42-mtc{{{cns}}} .mod-control-group .mod-fps-knob > span.mod-knob-title-on
+.x42-mtc{{{cns}}} .mod-control-group .mod-sync-knob > span.mod-knob-title-on
 {
     top:0px;
 }
 
-.x42-mtc{{{cns}}} .mod-control-group .mod-fps-knob > span.mod-knob-title-off
+.x42-mtc{{{cns}}} .mod-control-group .mod-sync-knob > span.mod-knob-title-off
 {
     bottom:0px;
 }
