@@ -30,7 +30,7 @@
     position:absolute;
     right:0;
     text-align:center;
-    top:210px;
+    top:215px;
 }
 
 .x42-mtc{{{cns}}} .x42-brand h1 {
@@ -82,14 +82,6 @@
     padding: 4px 0 2px 0;
     line-height:1.5em;
     vertical-align:middle;
-}
-
-.x42-mtc{{{cns}}} .led-group {
-    margin:10px auto 0 auto;
-    left:10px;
-    right:10px;
-    position:absolute;
-    bottom:135px;
 }
 
 .x42-mtc{{{cns}}} .bottom-group {
@@ -181,17 +173,4 @@
 
 .x42-mtc{{{cns}}} .mod-pushbutton.on {
     background-position: bottom center !important;
-}
-
-.x42-mtc{{{cns}}} .mod-control-group .x42-led {
-    background-image:url(/resources/x42-led.png{{{ns}}});
-    background-position:left center ;
-    background-repeat:no-repeat;
-    background-size:48px 24px;
-    height:24px;
-    width:24px;
-    margin:0px auto 0 auto;
-    cursor:pointer !important;
-    position:relative;
-    overflow:hidden;
 }
