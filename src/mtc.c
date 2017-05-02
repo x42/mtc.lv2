@@ -77,7 +77,7 @@ typedef struct {
 
 	/* Host Time */
 	bool     host_info;
-	long int host_frame;
+	int64_t  host_frame;
 	float    host_speed;
 
 	/* Settings */
@@ -139,6 +139,9 @@ update_position (MTC* self, const LV2_Atom_Object* obj)
 		self->host_speed = ((LV2_Atom_Float*)speed)->body;
 		self->host_frame = ((LV2_Atom_Long*)frame)->body;
 		self->host_info  = true;
+		if (self->host_frame < 0) {
+			self->host_info  = false;
+		}
 		return true;
 	}
 	return false;
