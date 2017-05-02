@@ -99,6 +99,7 @@
 		lv2:minimum 0;
 		lv2:default 0;
 		lv2:maximum 86400;
+		units:unit units:s;
 		rdfs:comment "Rewind position in seconds. This control is only relevant in 'Free Run' mode. ";
 	] , [
 		a lv2:OutputPort, lv2:ControlPort;
