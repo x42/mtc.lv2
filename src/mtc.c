@@ -59,6 +59,7 @@ typedef struct {
 	float* p_sync;
 	float* p_transport;
 	float* p_rewind;
+	float* p_zeropos;
 	float* p_tc[4];
 
 	/* Cached Ports */
@@ -313,15 +314,18 @@ connect_port (LV2_Handle instance,
 			self->p_rewind = (float*)data;
 			break;
 		case 6:
-			self->p_tc[0] = (float*)data;
+			self->p_zeropos = (float*)data;
 			break;
 		case 7:
-			self->p_tc[1] = (float*)data;
+			self->p_tc[0] = (float*)data;
 			break;
 		case 8:
-			self->p_tc[2] = (float*)data;
+			self->p_tc[1] = (float*)data;
 			break;
 		case 9:
+			self->p_tc[2] = (float*)data;
+			break;
+		case 10:
 			self->p_tc[3] = (float*)data;
 			break;
 		default:
@@ -402,7 +406,7 @@ run (LV2_Handle instance, uint32_t n_samples)
 		if (*self->p_sync > 0 && self->host_info) {
 			; // host sync
 		} else {
-			sample_at_cycle_start = 0;
+			sample_at_cycle_start = *self->p_zeropos * self->sample_rate;
 		}
 	}
 	self->c_rewind = *self->p_rewind;

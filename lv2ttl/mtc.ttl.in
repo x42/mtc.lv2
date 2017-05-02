@@ -90,10 +90,19 @@
 		lv2:default 0;
 		lv2:maximum 1;
 		lv2:portProperty lv2:integer, lv2:toggled, pprop:trigger;
-		rdfs:comment "Reset Timecode to 00:00:00:00. This control is only relevant in 'Free Run' mode. ";
+		rdfs:comment "Reset Timecode to rewind position (default 00:00:00:00). This control is only relevant in 'Free Run' mode. ";
+	] , [
+		a lv2:InputPort, lv2:ControlPort;
+		lv2:index 6;
+		lv2:symbol "startpos";
+		lv2:name "Rewind position";
+		lv2:minimum 0;
+		lv2:default 0;
+		lv2:maximum 86400;
+		rdfs:comment "Rewind position in seconds. This control is only relevant in 'Free Run' mode. ";
 	] , [
 		a lv2:OutputPort, lv2:ControlPort;
-		lv2:index 6;
+		lv2:index 7;
 		lv2:symbol "tc_hour";
 		lv2:name "Hour";
 		lv2:minimum 0;
@@ -101,7 +110,7 @@
 		lv2:portProperty lv2:integer, pprop:notOnGUI;
 	] , [
 		a lv2:OutputPort, lv2:ControlPort;
-		lv2:index 7;
+		lv2:index 8;
 		lv2:symbol "tc_minute";
 		lv2:name "Timecode Minute";
 		lv2:minimum 0;
@@ -109,7 +118,7 @@
 		lv2:portProperty lv2:integer, pprop:notOnGUI;
 	] , [
 		a lv2:OutputPort, lv2:ControlPort;
-		lv2:index 8;
+		lv2:index 9;
 		lv2:symbol "tc_second";
 		lv2:name "Timecode Second";
 		lv2:minimum 0;
@@ -117,7 +126,7 @@
 		lv2:portProperty lv2:integer, pprop:notOnGUI;
 	] , [
 		a lv2:OutputPort, lv2:ControlPort;
-		lv2:index 9;
+		lv2:index 10;
 		lv2:symbol "tc_frame";
 		lv2:name "Timecode Frame";
 		lv2:minimum 0;
