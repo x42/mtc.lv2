@@ -211,8 +211,8 @@ queue_mtc_quarterframe (MTC* self, const uint32_t tme, const TimecodeTime* const
 		case 3: mtc_msg =  0x30 | ((t->second & 0xf0) >>4 ); break;
 		case 4: mtc_msg =  0x40 |  (t->minute & 0xf); break;
 		case 5: mtc_msg =  0x50 | ((t->minute & 0xf0) >> 4); break;
-		case 6: mtc_msg =  0x60 |  ((mtc_tc | t->hour) & 0xf); break;
-		case 7: mtc_msg =  0x70 | (((mtc_tc | t->hour) & 0xf0) >>4); break;
+		case 6: mtc_msg =  0x60 |  ((mtc_tc | (t->hour % 24)) & 0xf); break;
+		case 7: mtc_msg =  0x70 | (((mtc_tc | (t->hour % 24)) & 0xf0) >>4); break;
 		default: assert (0); break;
 	}
 
@@ -239,7 +239,7 @@ queue_mtc_sysex (MTC* self, const uint32_t tme, const TimecodeTime* const t)
   sysex[9]  = (unsigned char) 0xf7; // fixed
 
   sysex[5] |= (unsigned char) (self->mtc_tc & 0x60);
-  sysex[5] |= (unsigned char) (t->hour & 0x1f);
+  sysex[5] |= (unsigned char) ((t->hour % 24) & 0x1f);
   sysex[6] |= (unsigned char) (t->minute & 0x7f);
   sysex[7] |= (unsigned char) (t->second & 0x7f);
   sysex[8] |= (unsigned char) (t->frame & 0x7f);
