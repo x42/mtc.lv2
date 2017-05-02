@@ -75,6 +75,7 @@
     z-index:30;
     color:black;
     box-shadow: 2px 2px 2px 0px #000 inset, -1px -1px 1px 1px #888 inset;
+    border-radius: 3px;
 }
 
 .x42-mtc{{{cns}}} .mod-timecode-group div {
