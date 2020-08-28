@@ -29,6 +29,7 @@ extern "C" {
 #endif
 
 #include <stddef.h> /* size_t */
+#include <stdint.h> /* int32_t, int64_t */
 
 #ifndef DOXYGEN_IGNORE
 /* libtimecode version */
@@ -43,19 +44,6 @@ extern "C" {
 #define LIBTIMECODE_CUR  0
 #define LIBTIMECODE_REV  0
 #define LIBTIMECODE_AGE  0
-#endif
-
-/* ISO C99 has this in <inttypes.h> */
-#if (!defined int32_t && !defined __int8_t_defined)
-typedef int int32_t;
-#endif
-
-#if (!defined int64_t && !defined __int8_t_defined)
-#  if __WORDSIZE == 64
-typedef long int int64_t;
-#else
-typedef long long int int64_t;
-#endif
 #endif
 
 /**
